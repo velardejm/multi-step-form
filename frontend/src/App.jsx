@@ -17,7 +17,7 @@ function App() {
           <Sidebar />
         </div>
 
-        <div className="flex-1 bg-blue-300">
+        <div className="flex-1">
           <Step1 />
         </div>
 
