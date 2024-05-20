@@ -3,35 +3,42 @@ import BackButton from "../common/BackButton";
 import TextInput from "./TextInput";
 
 export default function Step() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="py-10 px-20 border-2 border-white">
+    <div className="pt-10 px-20">
       <h1 className="text-3xl font-bold mb-2">Personal info</h1>
       <p className="mb-4">
         Please provide your name, email address, and phone number.
       </p>
 
-      <TextInput
-        type={"text"}
-        id={"name"}
-        label={"Name"}
-        placeholder={"e.g. Stephen King"}
-      />
-      <TextInput
-        type={"email"}
-        id={"email"}
-        label={"Email Address"}
-        placeholder={"e.g. stephenking@lorem.com"}
-      />
-      <TextInput
-        type={"tel"}
-        id={"phone"}
-        label={"Phone Number"}
-        placeholder={"e.g. +1 234 567 890"}
-        pattern={/\+[0-9]{1,3} [0-9]{3} [0-9]{3} [0-9]{3}/}
-      />
+      <form onSubmit={handleSubmit}>
+        <TextInput
+          type={"text"}
+          id={"name"}
+          label={"Name"}
+          placeholder={"e.g. Stephen King"}
+        />
+        <TextInput
+          type={"email"}
+          id={"email"}
+          label={"Email Address"}
+          placeholder={"e.g. stephenking@lorem.com"}
+        />
+        <TextInput
+          type={"tel"}
+          id={"phone"}
+          label={"Phone Number"}
+          placeholder={"e.g. +1 234 567 890"}
+          pattern={/\+[0-9]{1,3} [0-9]{3} [0-9]{3} [0-9]{3}/}
+        />
 
-      <BackButton />
-      <NextButton />
+        <div className="flex flex-row-reverse mt-24">
+          <NextButton />
+        </div>
+      </form>
     </div>
   );
 }

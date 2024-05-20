@@ -9,13 +9,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-magnolia w-dvw h-dvh flex justify-center items-center">
-      <div className="flex bg-white p-3 rounded-xl m-3 min-w-[940px] h-[600px]">
+    <div className="bg-magnolia flex justify-center items-center">
+      <div className="flex bg-white p-5 rounded-xl m-3">
         {/* <!-- Sidebar start --> */}
 
-        <div className="w-1/3">
-          <Sidebar />
-        </div>
+        <Sidebar />
 
         <div className="flex-1">
           <Step1 />
