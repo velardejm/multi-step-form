@@ -11,7 +11,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-magnolia flex justify-center items-center">
+    <div className="bg-magnolia flex justify-center items-center min-h-screen">
       <div className="flex bg-white p-5 rounded-xl m-3">
         <Sidebar />
 

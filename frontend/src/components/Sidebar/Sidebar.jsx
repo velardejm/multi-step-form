@@ -1,13 +1,15 @@
-import SidebarStep from "./SidebarStep"
-
+import { useState } from "react";
+import SidebarStep from "./SidebarStep";
 
 export default function Sidebar() {
-    return (
-        <div className="p-8 bg-[url('./assets/bg-sidebar-desktop.svg')] w-[274px] h-[568px]">
-            <SidebarStep step={1} description={'YOUR INFO'}/>
-            <SidebarStep step={2} description={'SELECT PLAN'}/>
-            <SidebarStep step={3} description={'ADD-ONS'}/>
-            <SidebarStep step={4} description={'SUMMARY'}/>
-        </div>
-    )
+  const [step, setStep] = useState(1);
+
+  return (
+    <div className="p-8 bg-[url('./assets/bg-sidebar-desktop.svg')] w-[274px] h-[568px]">
+      <SidebarStep step={1} description={"YOUR INFO"} currentStep={step} />
+      <SidebarStep step={2} description={"SELECT PLAN"} currentStep={step} />
+      <SidebarStep step={3} description={"ADD-ONS"} currentStep={step} />
+      <SidebarStep step={4} description={"SUMMARY"} currentStep={step} />
+    </div>
+  );
 }

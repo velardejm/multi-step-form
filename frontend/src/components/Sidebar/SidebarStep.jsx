@@ -1,10 +1,14 @@
-export default function SidebarStep({ step, description, isActive }) {
-
-
+export default function SidebarStep({ step, description, currentStep }) {
   return (
     <div className="flex items-center mb-4">
       <div className="mr-4">
-        <p className={`text-white ${true?'':'bg-lightBlue'} inline-block rounded-full border-white border-[1px] w-7 h-7 text-center`}>{step}</p>
+        <p
+          className={`inline-block rounded-full border-[1px] w-7 h-7 text-center ${
+            currentStep === step ? "step-current" : "step-default"
+          }`}
+        >
+          {step}
+        </p>
       </div>
       <div>
         <p className="text-coolGray">{`STEP ${step}`}</p>
