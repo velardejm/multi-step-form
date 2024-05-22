@@ -8,26 +8,22 @@ export default function StepLayout({
   back,
   next,
   confirm,
+  handleBack,
+  handleNext,
+  handleConfirm,
 }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="pt-10 px-20">
       <h1 className="text-3xl font-bold mb-2">{title}</h1>
       <p className="mb-4">{description}</p>
 
-      <form onSubmit={handleSubmit}>
-        <div className="h-96">
-        {children}
-        </div>
+      <div className="h-96">{children}</div>
 
-        <div className="flex flex-row-reverse justify-between">
-          {next && <NextButton />}
-          {back && <BackButton />}
-        </div>
-      </form>
+      <div className="flex flex-row-reverse justify-between">
+        {next && <NextButton handleNext={handleNext} />}
+        {back && <BackButton handleBack={handleBack} />}
+        {confirm && <Confirm handleConfirm={handleConfirm} />}
+      </div>
     </div>
   );
 }

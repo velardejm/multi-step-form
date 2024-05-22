@@ -8,16 +8,16 @@ import Step2 from "./components/Step2/Step2";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [step, setStep] = useState(1);
 
   return (
     <div className="bg-magnolia flex justify-center items-center min-h-screen">
       <div className="flex bg-white p-5 rounded-xl m-3">
-        <Sidebar />
+        <Sidebar step={step} />
 
         <div className="flex-1 min-w-96 w-[650px]">
-          <Step1 />
-          {/* <Step2 /> */}
+          {step === 1 && <Step1 step={step} setStep={setStep} />}
+          {step === 2 && <Step2 step={step} setStep={setStep} />}
         </div>
       </div>
     </div>

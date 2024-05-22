@@ -1,7 +1,7 @@
-export default function BackButton() {
-    return (
-        <button className="text-coolGray">
-            Go Back
-        </button>
-    )
+export default function BackButton({ handleBack }) {
+  return (
+    <button className="text-coolGray" onClick={handleBack}>
+      Go Back
+    </button>
+  );
 }

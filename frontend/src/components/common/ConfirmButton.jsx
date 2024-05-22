@@ -1,4 +1,4 @@
-export default function NextButton({ handleNext }) {
+export default function ConfirmButton({ handleNext }) {
   return (
     <button
       className="bg-marineBlue text-lightBlue p-3 rounded-md"

@@ -1,16 +1,14 @@
 import StepLayout from "../common/StepLayout";
 import TextInput from "./TextInput";
+import { handleNext } from "../../utils/buttonHandlers";
 
-export default function Step() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
+export default function Step1({ step, setStep }) {
   return (
     <StepLayout
-    title={"Personal info"}
-    description={"Please provide your name, email address, and phone number."}
-    next={true}
+      title={"Personal info"}
+      description={"Please provide your name, email address, and phone number."}
+      next={true}
+      handleNext={() => handleNext(step, setStep)}
     >
       <>
         <TextInput
