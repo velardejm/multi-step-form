@@ -1,6 +1,5 @@
 import StepLayout from "../common/StepLayout";
 import TextInput from "./TextInput";
-import { handleNext } from "../../utils/buttonHandlers";
 
 export default function Step1({ step, setStep }) {
   return (
@@ -8,7 +7,8 @@ export default function Step1({ step, setStep }) {
       title={"Personal info"}
       description={"Please provide your name, email address, and phone number."}
       next={true}
-      handleNext={() => handleNext(step, setStep)}
+      step={step}
+      setStep={setStep}
     >
       <>
         <TextInput

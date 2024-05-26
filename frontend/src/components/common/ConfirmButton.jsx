@@ -1,10 +1,10 @@
-export default function ConfirmButton({ handleNext }) {
+export default function ConfirmButton({ handleConfirm }) {
   return (
     <button
-      className="bg-marineBlue text-lightBlue p-3 rounded-md"
-      onClick={handleNext}
+      className="bg-purplishBlue text-lightGray p-3 rounded-md"
+      onClick={handleConfirm}
     >
-      Next Step
+      Confirm
     </button>
   );
 }

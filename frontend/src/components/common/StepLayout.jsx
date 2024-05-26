@@ -1,5 +1,11 @@
 import NextButton from "./NextButton";
 import BackButton from "./BackButton";
+import ConfirmButton from "./ConfirmButton";
+import {
+  handleNext,
+  handleBack,
+  handleConfirm,
+} from "../../utils/buttonHandlers";
 
 export default function StepLayout({
   children,
@@ -8,9 +14,8 @@ export default function StepLayout({
   back,
   next,
   confirm,
-  handleBack,
-  handleNext,
-  handleConfirm,
+  step,
+  setStep,
 }) {
   return (
     <div className="pt-10 px-20">
@@ -20,9 +25,11 @@ export default function StepLayout({
       <div className="h-96">{children}</div>
 
       <div className="flex flex-row-reverse justify-between">
-        {next && <NextButton handleNext={handleNext} />}
-        {back && <BackButton handleBack={handleBack} />}
-        {confirm && <Confirm handleConfirm={handleConfirm} />}
+        {confirm && (
+          <ConfirmButton handleConfirm={() => handleConfirm(step, setStep)} />
+        )}
+        {next && <NextButton handleNext={() => handleNext(step, setStep)} />}
+        {back && <BackButton handleBack={() => handleBack(step, setStep)} />}
       </div>
     </div>
   );
