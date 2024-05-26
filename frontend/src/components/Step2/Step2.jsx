@@ -17,12 +17,26 @@ export default function Step2({ step, setStep }) {
       handleBack={() => handleBack(step, setStep)}
     >
       <>
-        <p>Step 2</p>
-        <div className="flex flex-col justify-between bg-blue-300 h-[300px]">
+        <div className="flex flex-col justify-between h-72 pt-5">
           <div className="flex justify-between">
-            <PlanCard isMonthly={isMonthly} />
-            <PlanCard isMonthly={isMonthly} />
-            <PlanCard isMonthly={isMonthly} />
+            <PlanCard
+              isMonthly={isMonthly}
+              plan={"Arcade"}
+              icon={"icon-arcade.svg"}
+              pricing={["9", "90"]}
+            />
+            <PlanCard
+              isMonthly={isMonthly}
+              plan={"Advanced"}
+              icon={"icon-advanced.svg"}
+              pricing={["12", "120"]}
+            />
+            <PlanCard
+              isMonthly={isMonthly}
+              plan={"Pro"}
+              icon={"icon-pro.svg"}
+              pricing={["15", "150"]}
+            />
           </div>
 
           <div>
