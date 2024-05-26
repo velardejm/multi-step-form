@@ -6,6 +6,7 @@ import { handleNext, handleBack } from "../../utils/buttonHandlers";
 
 export default function Step2({ step, setStep }) {
   const [isMonthly, setIsMonthly] = useState(true);
+  const [selectedPlan, setSelectedPlan] = useState("arcade");
 
   return (
     <StepLayout
@@ -20,22 +21,22 @@ export default function Step2({ step, setStep }) {
         <div className="flex flex-col justify-between h-72 pt-5">
           <div className="flex justify-between">
             <PlanCard
-              isMonthly={isMonthly}
               plan={"Arcade"}
               icon={"icon-arcade.svg"}
               pricing={["9", "90"]}
+              {...{ isMonthly, selectedPlan, setSelectedPlan }}
             />
             <PlanCard
-              isMonthly={isMonthly}
               plan={"Advanced"}
               icon={"icon-advanced.svg"}
               pricing={["12", "120"]}
+              {...{ isMonthly, selectedPlan, setSelectedPlan }}
             />
             <PlanCard
-              isMonthly={isMonthly}
               plan={"Pro"}
               icon={"icon-pro.svg"}
               pricing={["15", "150"]}
+              {...{ isMonthly, selectedPlan, setSelectedPlan }}
             />
           </div>
 
