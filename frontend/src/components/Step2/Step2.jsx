@@ -3,8 +3,8 @@ import StepLayout from "../common/StepLayout";
 import PlanCard from "./PlanCard";
 import SubscriptionTypeSwitch from "./SubscriptionTypeSwitch";
 
-export default function Step2({ step, setStep }) {
-  const [isMonthly, setIsMonthly] = useState(true);
+export default function Step2({ step, setStep, isMonthly, setIsMonthly }) {
+  // const [isMonthly, setIsMonthly] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState("arcade");
 
   return (

@@ -19,12 +19,12 @@ export default function PlanCard({
   return (
     <div
       className={`w-[154px] border-[1.5px] border-pastelBlue rounded-lg p-5 hover:cursor-pointer ${
-        isSelected ? "bg-magnolia" : ""
+        isSelected ? "bg-alabaster" : ""
       } `}
       onClick={handleClick}
     >
       <img src={`/icons/${icon}`} className="mb-10" />
-      <p className="text-m font-bold">{plan}</p>
+      <p className="font-bold">{plan}</p>
       <p className="text-sm">{`$${
         isMonthly ? `${monthly}/mo` : `${yearly}/yr`
       }`}</p>

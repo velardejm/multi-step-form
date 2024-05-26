@@ -8,6 +8,7 @@ import "./App.css";
 
 function App() {
   const [step, setStep] = useState(1);
+  const [isMonthly, setIsMonthly] = useState(true);
 
   return (
     <div className="bg-magnolia flex justify-center items-center min-h-screen">
@@ -15,10 +16,14 @@ function App() {
         <Sidebar step={step} />
 
         <div className="flex-1 min-w-96 w-[650px]">
-          {step === 1 && <Step1 step={step} setStep={setStep} />}
-          {step === 2 && <Step2 step={step} setStep={setStep} />}
-          {step === 3 && <Step3 step={step} setStep={setStep} />}
-          {step === 4 && <Step4 step={step} setStep={setStep} />}
+          {step === 1 && <Step1 {...{ step, setStep }} />}
+          {step === 2 && (
+            <Step2 {...{ step, setStep, isMonthly, setIsMonthly }} />
+          )}
+          {step === 3 && (
+            <Step3 {...{ step, setStep, isMonthly, setIsMonthly }} />
+          )}
+          {step === 4 && <Step4 {...{ step, setStep }} />}
         </div>
       </div>
     </div>

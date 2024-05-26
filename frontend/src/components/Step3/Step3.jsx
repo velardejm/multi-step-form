@@ -1,7 +1,13 @@
 import { useState } from "react";
 import StepLayout from "../common/StepLayout";
+import AddOnCard from "./AddOnCard";
 
-export default function Step3({ step, setStep }) {
+export default function Step3({ step, setStep, isMonthly, setIsMonthly }) {
+  const [addOns, setAddOns] = useState({
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false,
+  });
 
   return (
     <StepLayout
@@ -13,7 +19,9 @@ export default function Step3({ step, setStep }) {
       setStep={setStep}
     >
       <>
-        <h1>Step 3</h1>
+        <AddOnCard {...{ addOns, setAddOns }} addOnKey={"onlineService"} />
+        <AddOnCard {...{ addOns, setAddOns }} addOnKey={"largerStorage"} />
+        <AddOnCard {...{ addOns, setAddOns }} addOnKey={"customizableProfile"} />
       </>
     </StepLayout>
   );
