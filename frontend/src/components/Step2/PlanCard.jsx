@@ -8,11 +8,11 @@ export default function PlanCard({
 }) {
   const [monthly, yearly] = pricing;
 
-  const isSelected = plan.toLowerCase() === selectedPlan;
+  const isSelected = plan === selectedPlan;
 
   const handleClick = () => {
     if (!isSelected) {
-      setSelectedPlan(plan.toLowerCase());
+      setSelectedPlan(plan);
     }
   };
 

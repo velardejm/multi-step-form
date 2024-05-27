@@ -1,7 +1,16 @@
-import { useState } from "react";
 import StepLayout from "../common/StepLayout";
+import SelectedAddOn from "./SelectedAddoOn";
 
-export default function Step4({ step, setStep }) {
+export default function Step4({
+  step,
+  setStep,
+  selectedPlan,
+  isMonthly,
+  addOns,
+  addOnsData,
+}) {
+  // console.log(addOns);
+  // console.log(addOnsData);
 
   return (
     <StepLayout
@@ -14,7 +23,24 @@ export default function Step4({ step, setStep }) {
     >
       <>
         <div>
-          <p></p>
+          <div>
+            <div>
+              <p>{`${selectedPlan} (${isMonthly ? "Monthly" : "Yearly"})`}</p>
+              <a href="#">Change</a>
+            </div>
+            <p></p>
+          </div>
+
+          <hr></hr>
+
+          <div>
+            {addOnsData.map((item, index) => {
+              const { addOnKey, addOn, pricing, isMonthly } = item;
+              if (addOns[addOnKey]) {
+                return <SelectedAddOn key={index} {...{ addOn, pricing }} />;
+              }
+            })}
+          </div>
         </div>
       </>
     </StepLayout>

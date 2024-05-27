@@ -5,11 +5,12 @@ import Step2 from "./components/Step2/Step2";
 import Step3 from "./components/Step3/Step3";
 import Step4 from "./components/Step4/Step4";
 import "./App.css";
+import { getTotal } from "./utils/helperFunctions";
 
 function App() {
   const [step, setStep] = useState(1);
   const [isMonthly, setIsMonthly] = useState(true);
-  const [selectedPlan, setSelectedPlan] = useState("arcade");
+  const [selectedPlan, setSelectedPlan] = useState("Arcade");
   const [addOns, setAddOns] = useState({
     onlineService: false,
     largerStorage: false,
@@ -17,12 +18,7 @@ function App() {
   });
   const [plansData, setPlansData] = useState(null);
   const [addOnsData, setAddOnsData] = useState(null);
-
-  const addOnPricing = {
-    onlineService: [1, 10],
-    largerStorage: [2, 20],
-    customizableProfile: [2, 20],
-  };
+  const [amountTotal, setAmountTotal] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,11 +27,24 @@ function App() {
         const { plans, addOns } = await response.json();
         setPlansData(plans);
         setAddOnsData(addOns);
+        getAddOnsTotal(addOns, addOnsData, isMonthly);
       } catch {}
     };
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const totalAmount = getTotal(
+      selectedPlan,
+      plansData,
+      addOns,
+      addOnsData,
+      isMonthly
+    );
+
+    console.log(totalAmount);
+  }, [selectedPlan, addOns]);
 
   !plansData && null;
 
@@ -61,11 +70,20 @@ function App() {
           )}
           {step === 3 && (
             <Step3
-              {...{ step, setStep, isMonthly, addOns, setAddOns, addOnPricing, addOnsData }}
+              {...{ step, setStep, isMonthly, addOns, setAddOns, addOnsData }}
             />
           )}
           {step === 4 && (
-            <Step4 {...{ step, setStep, selectedPlan, isMonthly }} />
+            <Step4
+              {...{
+                step,
+                setStep,
+                selectedPlan,
+                isMonthly,
+                addOns,
+                addOnsData,
+              }}
+            />
           )}
         </div>
       </div>
