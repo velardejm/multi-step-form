@@ -5,15 +5,17 @@ export default function Step4({ step, setStep }) {
 
   return (
     <StepLayout
-      title={"Pick add-ons"}
-      description={"Add-ons help enhance your gaming experience."}
+      title={"Finishing up"}
+      description={"Double-check everything looks OK before confirming."}
       confirm={true}
       back={true}
       step={step}
       setStep={setStep}
     >
       <>
-        <h1>Step 4</h1>
+        <div>
+          <p></p>
+        </div>
       </>
     </StepLayout>
   );

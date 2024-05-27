@@ -19,7 +19,7 @@ export default function PlanCard({
   return (
     <div
       className={`w-[154px] border-[1.5px] border-pastelBlue rounded-lg p-5 hover:cursor-pointer ${
-        isSelected ? "bg-alabaster" : ""
+        isSelected ? "bg-magnolia" : ""
       } `}
       onClick={handleClick}
     >

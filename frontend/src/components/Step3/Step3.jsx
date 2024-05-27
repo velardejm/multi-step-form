@@ -1,14 +1,14 @@
-import { useState } from "react";
 import StepLayout from "../common/StepLayout";
 import AddOnCard from "./AddOnCard";
 
-export default function Step3({ step, setStep, isMonthly, setIsMonthly }) {
-  const [addOns, setAddOns] = useState({
-    onlineService: false,
-    largerStorage: false,
-    customizableProfile: false,
-  });
-
+export default function Step3({
+  step,
+  setStep,
+  isMonthly,
+  addOns,
+  setAddOns,
+  addOnsData,
+}) {
   return (
     <StepLayout
       title={"Pick add-ons"}
@@ -18,11 +18,25 @@ export default function Step3({ step, setStep, isMonthly, setIsMonthly }) {
       step={step}
       setStep={setStep}
     >
-      <>
-        <AddOnCard {...{ addOns, setAddOns }} addOnKey={"onlineService"} />
-        <AddOnCard {...{ addOns, setAddOns }} addOnKey={"largerStorage"} />
-        <AddOnCard {...{ addOns, setAddOns }} addOnKey={"customizableProfile"} />
-      </>
+      <div className="mt-10">
+        {addOnsData.map((item, index) => {
+          const { addOn, addOnKey, description, pricing } = item;
+          return (
+            <AddOnCard
+              key={index}
+              {...{
+                addOns,
+                setAddOns,
+                isMonthly,
+                addOn,
+                addOnKey,
+                description,
+                pricing,
+              }}
+            />
+          );
+        })}
+      </div>
     </StepLayout>
   );
 }

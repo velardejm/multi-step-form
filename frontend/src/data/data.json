@@ -1,0 +1,27 @@
+{
+  "plans": [
+    { "plan": "Arcade", "pricing": [9, 90], "icon": "icon-arcade.svg" },
+    { "plan": "Advanced", "pricing": [12, 120], "icon": "icon-advanced.svg" },
+    { "plan": "Pro", "pricing": [15, 150], "icon": "icon-pro.svg" }
+  ],
+  "addOns": [
+    {
+      "addOn": "Online Service",
+      "addOnKey": "onlineService",
+      "description": "Access to multiplayer games",
+      "pricing": [1, 10]
+    },
+    {
+      "addOn": "Larger storage",
+      "addOnKey": "largerStorage",
+      "description": "Extra 1TB of cloud save",
+      "pricing": [2, 20]
+    },
+    {
+      "addOn": "Customizable profile",
+      "addOnKey": "customizableProfile",
+      "description": "Custom theme on your profile",
+      "pricing": [2, 20]
+    }
+  ]
+}

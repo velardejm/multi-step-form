@@ -3,9 +3,15 @@ import StepLayout from "../common/StepLayout";
 import PlanCard from "./PlanCard";
 import SubscriptionTypeSwitch from "./SubscriptionTypeSwitch";
 
-export default function Step2({ step, setStep, isMonthly, setIsMonthly }) {
-  // const [isMonthly, setIsMonthly] = useState(true);
-  const [selectedPlan, setSelectedPlan] = useState("arcade");
+export default function Step2({
+  step,
+  setStep,
+  isMonthly,
+  setIsMonthly,
+  selectedPlan,
+  setSelectedPlan,
+  plansData,
+}) {
 
   return (
     <StepLayout
@@ -19,24 +25,22 @@ export default function Step2({ step, setStep, isMonthly, setIsMonthly }) {
       <>
         <div className="flex flex-col justify-between h-72 pt-5">
           <div className="flex justify-between">
-            <PlanCard
-              plan={"Arcade"}
-              icon={"icon-arcade.svg"}
-              pricing={["9", "90"]}
-              {...{ isMonthly, selectedPlan, setSelectedPlan }}
-            />
-            <PlanCard
-              plan={"Advanced"}
-              icon={"icon-advanced.svg"}
-              pricing={["12", "120"]}
-              {...{ isMonthly, selectedPlan, setSelectedPlan }}
-            />
-            <PlanCard
-              plan={"Pro"}
-              icon={"icon-pro.svg"}
-              pricing={["15", "150"]}
-              {...{ isMonthly, selectedPlan, setSelectedPlan }}
-            />
+            {plansData.map((item, index) => {
+              const { plan, pricing, icon } = item;
+              return (
+                <PlanCard
+                  key={index}
+                  {...{
+                    plan,
+                    pricing,
+                    icon,
+                    isMonthly,
+                    selectedPlan,
+                    setSelectedPlan,
+                  }}
+                />
+              );
+            })}
           </div>
 
           <div>
