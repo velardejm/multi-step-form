@@ -1,5 +1,5 @@
 import StepLayout from "../common/StepLayout";
-import SelectedAddOn from "./SelectedAddoOn";
+import SelectedAddOn from "./SelectedAddOn";
 
 export default function Step4({
   step,
@@ -8,9 +8,9 @@ export default function Step4({
   isMonthly,
   addOns,
   addOnsData,
+  amountTotals,
 }) {
-  // console.log(addOns);
-  // console.log(addOnsData);
+  const [planTotal, addOnsTotal, total] = amountTotals;
 
   return (
     <StepLayout
@@ -23,24 +23,34 @@ export default function Step4({
     >
       <>
         <div>
-          <div>
+          <div className="flex justify-between items-center">
             <div>
               <p>{`${selectedPlan} (${isMonthly ? "Monthly" : "Yearly"})`}</p>
               <a href="#">Change</a>
             </div>
-            <p></p>
+            <p>{`$${planTotal}/${isMonthly ? "mo" : "yr"}`}</p>
           </div>
 
           <hr></hr>
 
           <div>
             {addOnsData.map((item, index) => {
-              const { addOnKey, addOn, pricing, isMonthly } = item;
+              const { addOnKey, addOn, pricing } = item;
               if (addOns[addOnKey]) {
-                return <SelectedAddOn key={index} {...{ addOn, pricing }} />;
+                return (
+                  <SelectedAddOn
+                    key={index}
+                    {...{ addOn, pricing, isMonthly }}
+                  />
+                );
               }
             })}
           </div>
+        </div>
+
+        <div className="flex justify-between">
+          <p>{`Total (per ${isMonthly ? "month" : "year"})`} </p>
+          <p>{`$${total}/${isMonthly ? "mo" : "yr"}`}</p>
         </div>
       </>
     </StepLayout>

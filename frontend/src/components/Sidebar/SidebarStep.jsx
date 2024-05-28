@@ -1,4 +1,9 @@
-export default function SidebarStep({ step, description, currentStep }) {
+export default function SidebarStep({
+  step,
+  description,
+  currentStep,
+  setStep,
+}) {
   return (
     <div className="flex items-center mb-4">
       <div className="mr-4">

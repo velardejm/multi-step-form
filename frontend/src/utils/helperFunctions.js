@@ -1,23 +1,23 @@
-export function getTotal(selectedPlan, plansData, addOns, addOnsData, isMonthly) {
+export function getTotals(selectedPlan, plansData, addOns, addOnsData, isMonthly) {
     const pricingIndex = isMonthly ? 0 : 1
 
-    let total = 0;
+    let planTotal = 0;
+    let addOnsTotal = 0;
+    let total = 0
 
-    // console.log(selectedPlan);
-
-    if (plansData !== null && addOnsData !== null) {
-
+    if (plansData && addOnsData) {
         const plan = plansData.filter((i) => i.plan === selectedPlan);
-
-        total += plan.pricing[pricingIndex]
+        planTotal = plan[0].pricing[pricingIndex];
+        // console.log(planTotal);
 
         addOnsData.map((item) => {
             const { addOnKey, pricing } = item;
             if (addOns[addOnKey]) {
-                total += pricing[pricingIndex]
+                addOnsTotal += pricing[pricingIndex]
             }
+            total = planTotal + addOnsTotal
         });
     }
 
-    return total;
+    return [planTotal, addOnsTotal, total];
 }

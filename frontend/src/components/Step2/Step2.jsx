@@ -11,6 +11,7 @@ export default function Step2({
   selectedPlan,
   setSelectedPlan,
   plansData,
+  updateTotals
 }) {
 
   return (
@@ -21,6 +22,7 @@ export default function Step2({
       back={true}
       step={step}
       setStep={setStep}
+      updateTotals={updateTotals}
     >
       <>
         <div className="flex flex-col justify-between h-72 pt-5">

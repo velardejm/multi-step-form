@@ -8,6 +8,7 @@ export default function Step3({
   addOns,
   setAddOns,
   addOnsData,
+  updateTotals
 }) {
   return (
     <StepLayout
@@ -17,6 +18,7 @@ export default function Step3({
       back={true}
       step={step}
       setStep={setStep}
+      updateTotals={updateTotals}
     >
       <div className="mt-10">
         {addOnsData.map((item, index) => {

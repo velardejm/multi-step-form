@@ -16,6 +16,8 @@ export default function StepLayout({
   confirm,
   step,
   setStep,
+  isNextEnabled,
+  updateTotals,
 }) {
   return (
     <div className="pt-10 px-20">
@@ -28,7 +30,14 @@ export default function StepLayout({
         {confirm && (
           <ConfirmButton handleConfirm={() => handleConfirm(step, setStep)} />
         )}
-        {next && <NextButton handleNext={() => handleNext(step, setStep)} />}
+        {next && (
+          <NextButton
+            handleNext={() => handleNext(step, setStep)}
+            isNextEnabled={isNextEnabled}
+            step={step}
+            updateTotals={updateTotals}
+          />
+        )}
         {back && <BackButton handleBack={() => handleBack(step, setStep)} />}
       </div>
     </div>

@@ -1,4 +1,21 @@
-export default function TextInput({ type, id, label, placeholder, ...props }) {
+export default function TextInput({
+  type,
+  id,
+  label,
+  placeholder,
+  personalInfo,
+  setPersonalInfo,
+  ...props
+}) {
+  const handleChange = (e) => {
+    setPersonalInfo((prev) => {
+      return {
+        ...prev,
+        [id]: e.target.value,
+      };
+    });
+  };
+
   return (
     <div className="mb-5">
       <label className="block mb-2" htmlFor={id}>
@@ -12,6 +29,8 @@ export default function TextInput({ type, id, label, placeholder, ...props }) {
         placeholder={placeholder}
         required
         {...props}
+        onChange={handleChange}
+        value={personalInfo[id]}
       />
     </div>
   );
